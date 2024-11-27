@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:clock_ui/digit_painter.dart';
 import 'package:clock_ui/dot_painter.dart';
-import 'package:clock_ui/segment_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -29,7 +28,7 @@ class _ClockUiState extends State<ClockUi> {
   }
 
   String _getCurrentTime() {
-    return DateFormat('HH:mm:ss').format(DateTime.now());
+    return DateFormat('mm:ss').format(DateTime.now());
   }
 
   @override
@@ -40,9 +39,7 @@ class _ClockUiState extends State<ClockUi> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-
+    List<String> digits = currentTime.replaceAll(":", "").split("");
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -50,88 +47,53 @@ class _ClockUiState extends State<ClockUi> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomPaint(
-                size: Size(70, 150), // Kích thước vùng vẽ
-                painter: DigitPainter("8"), // Sử dụng CustomPainter
+                size: const Size(70, 150),
+                painter: DigitPainter(digits[0]),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               CustomPaint(
-                size: Size(65, 150), // Kích thước vùng vẽ
-                painter: MyCustomPainter(), // Sử dụng CustomPainter
+                size: const Size(70, 150),
+                painter: DigitPainter(digits[1]),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomPaint(
-                    size: Size(13, 13), // Kích thước vùng vẽ
-                    painter: DotPainter(), // Sử dụng CustomPainter
+                    size: const Size(13, 13),
+                    painter: DotPainter(),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomPaint(
-                    size: Size(13, 13), // Kích thước vùng vẽ
-                    painter: DotPainter(), // Sử dụng CustomPainter
+                    size: const Size(13, 13),
+                    painter: DotPainter(),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               CustomPaint(
-                size: Size(65, 150), // Kích thước vùng vẽ
-                painter: MyCustomPainter(), // Sử dụng CustomPainter
+                size: const Size(70, 150),
+                painter: DigitPainter(digits[2]),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               CustomPaint(
-                size: Size(65, 150), // Kích thước vùng vẽ
-                painter: MyCustomPainter(), // Sử dụng CustomPainter
+                size: const Size(70, 150),
+                painter: DigitPainter(digits[3]),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-}
-
-class MyCustomPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.blue
-      ..strokeWidth = 4.0;
-
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
-    paint.color = Colors.red;
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2), 20, paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-}
-
-class ClockPainter extends CustomPainter {
-  final String time;
-
-  ClockPainter(this.time);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return true;
   }
 }
