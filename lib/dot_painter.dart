@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class DotPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
     Paint paint = Paint()
       ..color = Colors.black
       ..strokeWidth = 4.0;
@@ -12,7 +11,6 @@ class DotPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return false;
   }
 }

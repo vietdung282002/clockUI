@@ -61,7 +61,6 @@ class DigitPainter extends CustomPainter {
   void drawTopSegment(
       Canvas canvas, Size size, Color color, double thickness, double padding) {
     final x = size.width;
-    final y = size.height;
     Paint paint = Paint()
       ..color = color
       ..style = PaintingStyle.fill;
@@ -95,7 +94,6 @@ class DigitPainter extends CustomPainter {
 
   void drawLeftSegment(Canvas canvas, Size size, Color color, double thickness,
       double padding, double margin) {
-    final x = size.width;
     final y = size.height;
     Paint paint = Paint()
       ..color = color
