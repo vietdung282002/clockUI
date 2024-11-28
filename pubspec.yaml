@@ -60,18 +60,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/disable_mid.png
-    - assets/disable_down.png
-    - assets/disable_left.png
-    - assets/disable_right.png
-    - assets/disable_up.png
-    - assets/enable_mid.png
-    - assets/enable_down.png
-    - assets/enable_left.png
-    - assets/enable_right.png
-    - assets/enable_up.png
-    - assets/dot.png
+  # assets:
+  #   - assets/123.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
